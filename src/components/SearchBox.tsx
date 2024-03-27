@@ -1,27 +1,33 @@
-import { SearchIcon } from "@/icons";
+import { MapPinIcon, SearchIcon } from "@/icons";
 import { cn } from "@/utils/cn";
 
 interface Props {
   className?: string;
   value: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  onSubmit: React.FormEventHandler<HTMLFormElement>;
+  location: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement> | undefined;
+  onSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
 }
 
-export const SearchBox = ({ value, onChange, onSubmit, className }: Props) => {
+export const SearchBox = ({ value, onChange, onSubmit, className, location }: Props) => {
   return (
     <form
       onSubmit={onSubmit}
-      className={cn("flex items-center justify-center h-10", className)}
+      className={cn(
+        "w-full sm:w-fit gap-2 rounded-full text-gravel-950 dark:text-gravel-50 bg-gravel-200 dark:bg-gravel-700 group relative flex items-center overflow-hidden px-4 py-1",
+        className
+      )}
     >
+      <MapPinIcon width={30} height={30} strokeWidth={1.5} />
       <input
         type="text"
-        placeholder="Search location..."
+        placeholder={location}
         onChange={onChange}
         value={value}
-        className="px-4 py-2 w-[230px] border border-gray-300 rounded-l-md focus:outline-none focus:border-blue-500 h-full"
+        className="transition-all group-hover:me-4 text-gravel-950 dark:text-gravel-50 bg-transparent px-4 py-2 w-[230px] focus:outline-none focus:border-none h-full"
       />
-      <button className="px-4 py-[9px] bg-blue-500 text-white rounded-r-md focus:outline-none hover:bg-blue-600 h-full">
+
+      <button className="absolute -end-full py-[9px] transition-all group-hover:end-4 focus:outline-none">
         <SearchIcon />
       </button>
     </form>
