@@ -108,7 +108,9 @@ export default function Home() {
                 />
               </Container>
             </div>
-            <Footer />
+            <div className="hidden md:flex">
+              <Footer />
+            </div>
           </section>
           <section className="flex w-full md:w-8/12 flex-col gap-4 overflow-y-auto">
             <p className="text-xl font-light pt-1 -mb-3 flex items-center gap-2">
@@ -152,6 +154,9 @@ export default function Home() {
               />
             ))}
           </section>
+          <div className="md:hidden text-center">
+            <Footer />
+          </div>
         </main>
       )}
     </div>
