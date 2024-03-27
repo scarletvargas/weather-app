@@ -97,7 +97,7 @@ export default function Home() {
                   </div>
                 </div>
               </Container>
-              <Container className="bg-gradient-to-br text-gravel-950 dark:text-gravel-50 from-sienna-300 dark:from-sienna-600 to-sienna-600 dark:to-black grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 px-6 justify-between gap-4">
+              <Container className="bg-gradient-to-br text-gravel-950 dark:text-gravel-50 from-sienna-300 dark:from-sienna-600 to-sienna-600 dark:to-black grid grid-cols-2 px-6 justify-between gap-4">
                 <WeatherDetails
                   visability={metersToKilometers(firstData?.visibility ?? 10000)}
                   airPressure={`${firstData?.main.pressure} hPa`}
